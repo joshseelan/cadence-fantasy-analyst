@@ -165,11 +165,17 @@ class CadenceFantasyAnalyst:
         """Search the web for NFL fantasy information"""
         try:
             search_url = "https://serpapi.com/search"
+            
+            # Add current date and more specific search terms for better results
+            from datetime import datetime
+            current_date = datetime.now().strftime("%B %Y")  # e.g., "August 2025"
+            
             params = {
-                "q": f"{query} NFL fantasy football 2024",
+                "q": f"{query} NFL fantasy football {current_date} latest news today",
                 "api_key": os.getenv("SERPAPI_KEY"),
                 "engine": "google",
-                "num": 5
+                "num": 8,  # Get more results
+                "tbs": "qdr:w"  # Search results from the past week
             }
             
             response = requests.get(search_url, params=params)
@@ -177,9 +183,10 @@ class CadenceFantasyAnalyst:
                 results = response.json()
                 search_results = ""
                 if "organic_results" in results:
-                    for result in results["organic_results"][:3]:
+                    for result in results["organic_results"][:5]:  # Use more results
                         search_results += f"Title: {result.get('title', '')}\n"
-                        search_results += f"Snippet: {result.get('snippet', '')}\n\n"
+                        search_results += f"Snippet: {result.get('snippet', '')}\n"
+                        search_results += f"Source: {result.get('source', '')}\n\n"
                 return search_results
             else:
                 return "Unable to fetch current data. Please try again."
@@ -477,7 +484,7 @@ def main():
         if st.button("📰 Generate Latest Training Camp Report", key="training_camp"):
             with st.spinner("🔍 Gathering latest training camp news..."):
                 # Create analysis for training camp news
-                training_camp_query = "NFL training camp news players trending up down fantasy football 2024"
+                training_camp_query = "NFL training camp news August 2025 players trending up down standouts rookies position battles"
                 search_results = st.session_state.analyst.search_web(training_camp_query)
                 
                 analysis_prompt = f"""
@@ -531,7 +538,7 @@ def main():
         if st.button("🚨 Get Current Injury Report", key="injury_news"):
             with st.spinner("🔍 Gathering latest injury reports..."):
                 # Create analysis for injury news
-                injury_query = "NFL injury report fantasy football players injured 2024"
+                injury_query = "NFL injury report August 2025 fantasy football injured players latest updates today"
                 search_results = st.session_state.analyst.search_web(injury_query)
                 
                 injury_prompt = f"""
@@ -584,7 +591,7 @@ def main():
         if st.button("🏈 Analyze This Week's Matchups", key="matchups"):
             with st.spinner("🔍 Analyzing this week's NFL matchups..."):
                 # Create analysis for weekly matchups
-                matchup_query = "NFL week matchups schedule fantasy football analysis 2024"
+                matchup_query = "NFL week 1 2025 matchups schedule fantasy football start sit weather game script"
                 search_results = st.session_state.analyst.search_web(matchup_query)
                 
                 matchup_prompt = f"""
