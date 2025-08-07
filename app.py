@@ -162,7 +162,7 @@ class CadenceFantasyAnalyst:
         """
     
     def search_web(self, query: str) -> str:
-        """Search the web for NFL fantasy information"""
+        """Search the web for NFL fantasy information from expert sources"""
         try:
             search_url = "https://serpapi.com/search"
             
@@ -174,7 +174,7 @@ class CadenceFantasyAnalyst:
                 "q": f"{query} NFL fantasy football {current_date} latest news today",
                 "api_key": os.getenv("SERPAPI_KEY"),
                 "engine": "google",
-                "num": 8,  # Get more results
+                "num": 12,  # Get even more results from these quality sources
                 "tbs": "qdr:w"  # Search results from the past week
             }
             
@@ -183,7 +183,7 @@ class CadenceFantasyAnalyst:
                 results = response.json()
                 search_results = ""
                 if "organic_results" in results:
-                    for result in results["organic_results"][:5]:  # Use more results
+                    for result in results["organic_results"][:8]:  # Use more results from quality sources
                         search_results += f"Title: {result.get('title', '')}\n"
                         search_results += f"Snippet: {result.get('snippet', '')}\n"
                         search_results += f"Source: {result.get('source', '')}\n\n"
@@ -483,8 +483,8 @@ def main():
         
         if st.button("📰 Generate Latest Training Camp Report", key="training_camp"):
             with st.spinner("🔍 Gathering latest training camp news..."):
-                # Create analysis for training camp news
-                training_camp_query = "NFL training camp August 2025 second year players breakout candidates veterans news reports latest"
+                # Create analysis for training camp news with comprehensive fantasy sources
+                training_camp_query = "site:twitter.com OR site:sleeper.com OR site:reddit.com/r/fantasyfootball OR site:rotoballer.com OR site:theathletic.com OR site:dynastynerds.com OR site:fantasypros.com NFL training camp trending players breakout August 2025"
                 search_results = st.session_state.analyst.search_web(training_camp_query)
                 
                 analysis_prompt = f"""
@@ -544,8 +544,8 @@ def main():
         
         if st.button("🚨 Get Current Injury Report", key="injury_news"):
             with st.spinner("🔍 Gathering latest injury reports..."):
-                # Create analysis for injury news
-                injury_query = "NFL injury report August 2025 fantasy football injured players latest updates today"
+                # Create analysis for injury news with comprehensive sources
+                injury_query = "site:twitter.com OR site:sleeper.com OR site:espn.com OR site:rotoballer.com OR site:theathletic.com OR site:fantasypros.com OR site:dynastynerds.com NFL injury report August 2025 fantasy impact latest"
                 search_results = st.session_state.analyst.search_web(injury_query)
                 
                 injury_prompt = f"""
@@ -597,8 +597,8 @@ def main():
         
         if st.button("🏈 Analyze This Week's Matchups", key="matchups"):
             with st.spinner("🔍 Analyzing this week's NFL matchups..."):
-                # Create analysis for weekly matchups
-                matchup_query = "NFL week 1 2025 matchups schedule fantasy football start sit weather game script"
+                # Create analysis for weekly matchups with expert fantasy sources
+                matchup_query = "site:fantasypros.com OR site:sleeper.com OR site:reddit.com/r/fantasyfootball OR site:rotoballer.com OR site:theathletic.com OR site:dynastynerds.com NFL week 1 2025 start sit matchups weather"
                 search_results = st.session_state.analyst.search_web(matchup_query)
                 
                 matchup_prompt = f"""
