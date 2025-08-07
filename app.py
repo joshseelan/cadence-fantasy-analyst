@@ -484,22 +484,29 @@ def main():
         if st.button("📰 Generate Latest Training Camp Report", key="training_camp"):
             with st.spinner("🔍 Gathering latest training camp news..."):
                 # Create analysis for training camp news
-                training_camp_query = "NFL training camp news August 2025 players trending up down standouts rookies position battles"
+                training_camp_query = "NFL training camp August 2025 second year players breakout candidates veterans news reports latest"
                 search_results = st.session_state.analyst.search_web(training_camp_query)
                 
                 analysis_prompt = f"""
-                Based on the latest NFL training camp information, create a comprehensive training camp report that includes:
+                Based on the latest NFL training camp information, create a comprehensive training camp report.
                 
-                1. Players who are trending UP (gaining value, impressing coaches, winning jobs)
-                2. Players who are trending DOWN (losing value, struggling, losing opportunities) 
+                IMPORTANT CONTEXT FOR 2025 SEASON:
+                - 2024 draft class (Malik Nabers, Caleb Williams, Jayden Daniels, etc.) are now SECOND-YEAR players, not rookies
+                - 2025 draft class are the actual rookies this season
+                - Ignore any search results that incorrectly call 2024 players "rookies"
+                
+                Include analysis on:
+                1. Players trending UP (gaining value, impressing coaches, winning jobs)
+                2. Players trending DOWN (losing value, struggling, losing opportunities) 
                 3. Key storylines and position battles to watch
-                4. Rookie impact players making waves
-                5. Veteran players with new opportunities
+                4. Second-year breakout candidates (2024 draft class in year 2)
+                5. Actual 2025 rookies making early impacts
+                6. Veterans with new opportunities or in new systems
                 
                 Current Training Camp Information:
                 {search_results}
                 
-                Format this as a comprehensive fantasy football training camp report with clear sections and actionable insights.
+                Format this as a comprehensive fantasy football training camp report with clear sections and actionable insights for the 2025 season.
                 """
                 
                 # Get analysis
