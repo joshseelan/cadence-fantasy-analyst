@@ -290,16 +290,23 @@ class CadenceFantasyAnalyst:
         
         # Use Streamlit's built-in styling components with Cadence theme
         with st.container():
-            # Create header with Cadence logo
-            st.markdown(f"""
-            <div style="background: linear-gradient(135deg, #1a1a1a 0%, #6b46c1 100%); 
-                        padding: 1rem; border-radius: 15px; margin: 1rem 0; 
-                        border-left: 4px solid #8b5cf6; display: flex; align-items: center; gap: 1rem;">
-                <img src="https://raw.githubusercontent.com/joshseelan/cadence-fantasy-analyst/main/CADENCE.png" 
-                     style="width: 50px; height: 50px;" alt="Cadence Logo"/>
-                <h3 style="color: white; margin: 0;">Fantasy Analysis</h3>
-            </div>
-            """, unsafe_allow_html=True)
+            # Create header with Cadence logo using Streamlit components
+            col1, col2 = st.columns([1, 8])
+            
+            with col1:
+                try:
+                    st.image("CADENCE.png", width=60)
+                except:
+                    st.markdown("🏈")  # Fallback if logo doesn't load
+                    
+            with col2:
+                st.markdown("""
+                <div style="background: linear-gradient(135deg, #1a1a1a 0%, #6b46c1 100%); 
+                            padding: 1rem; border-radius: 15px; margin: 1rem 0; 
+                            border-left: 4px solid #8b5cf6;">
+                    <h3 style="color: white; margin: 0;">Fantasy Analysis</h3>
+                </div>
+                """, unsafe_allow_html=True)
             
             # Create two columns - one for analysis, one for confidence
             col1, col2 = st.columns([3, 1])
