@@ -1,19 +1,4 @@
-# Create header with Cadence logo using Streamlit components
-            header_col1, header_col2 = st.columns([1, 6])
-            
-            with header_col1:
-                try:
-                    st.image("CADENCE.png", width=80)
-                except:
-                    st.markdown("🏈")  # Fallback football emoji
-                    
-            with header_col2:
-                st.markdown("### Fantasy Analysis")            # Create header with Cadence logo using base64
-            st.markdown(f"""
-            <div style="background: linear-gradient(135deg, #1a1a1a 0%, #6b46c1 100%); 
-                        padding: 1rem; border-radius: 15px; margin: 1rem 0; 
-                        border-left: 4px solid #8b5cf6; display: flex; align-items: center; gap: 1rem;">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcwAAAHMCAYAAABY25rOAAAAAXNSR0IArs4c6QAAIABJREFUeF7t3QecFOXZ//H7yjlhOVvOHnccIEhQEVtiiS2aqLElMRr7YxKNJk9i8qdEY+xRsXcTu7Fg7w0bNsQGFhQU9jjOtrcccDnIWZ7/8dz37PsmdyDHO7uzs/vMZ97v7Ozszvd7ZnZ+893beebH3EREABEBJK/vGpCqS+NhiEgkgYJIXOJrQbC3Iv4PGRLfzCIiEhEJKxKJRCKy/yt7RM+GJP8b+dF/F8S4ZJo+/p1IJKIiEu+jIH6NIhKOGNnFl4v8s8T/d3GJvV/i/5O/rf2+7uDlJfZeY5Rj/VYlf5/xf4h/77HLNqITzF//8T9bBn9vGSp/b5zGUVy9Q/5u7VL1adrQgU5EREREJKJBhYHORETG/3EJBjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCmCgExERpQAGOhERUQpgoBMREaUABjoREVEKYKATERGlAAY6ERFRCsg2XQARkVki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 streamlit as st
+import streamlit as st
 import requests
 import json
 from datetime import datetime
@@ -306,22 +291,16 @@ class CadenceFantasyAnalyst:
         # Use Streamlit's built-in styling components with Cadence theme
         with st.container():
             # Create header with Cadence logo using Streamlit components
-            col1, col2 = st.columns([1, 8])
+            header_col1, header_col2 = st.columns([1, 6])
             
-            with col1:
+            with header_col1:
                 try:
-                    st.image("CADENCE.png", width=60)
+                    st.image("CADENCE.png", width=80)
                 except:
-                    st.markdown("🏈")  # Fallback if logo doesn't load
+                    st.markdown("🏈")  # Fallback football emoji
                     
-            with col2:
-                st.markdown("""
-                <div style="background: linear-gradient(135deg, #1a1a1a 0%, #6b46c1 100%); 
-                            padding: 1rem; border-radius: 15px; margin: 1rem 0; 
-                            border-left: 4px solid #8b5cf6;">
-                    <h3 style="color: white; margin: 0;">Fantasy Analysis</h3>
-                </div>
-                """, unsafe_allow_html=True)
+            with header_col2:
+                st.markdown("### Fantasy Analysis")
             
             # Create two columns - one for analysis, one for confidence
             col1, col2 = st.columns([3, 1])
@@ -368,13 +347,44 @@ class CadenceFantasyAnalyst:
                     st.warning(f"**{confidence}**")
 
 def main():
-    # Header with Cadence branding
+    # Smaller header with Cadence branding
     st.markdown("""
-    <div class="main-header">
-        <h1>🏈 CADENCE Fantasy Analyst</h1>
-        <p>Elite fantasy football analysis powered by real-time NFL data & AI</p>
+    <div style="text-align: center; padding: 1rem 0; 
+                background: linear-gradient(135deg, #000000 0%, #6b46c1 100%);
+                color: white; border-radius: 15px; margin-bottom: 1.5rem;
+                box-shadow: 0 4px 20px rgba(107, 70, 193, 0.3);">
+        <h2 style="margin: 0; font-size: 1.8rem;">🏈 CADENCE Fantasy Analyst</h2>
+        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Elite fantasy football analysis powered by real-time NFL data & AI</p>
     </div>
     """, unsafe_allow_html=True)
+    
+    # Popular questions section (horizontal)
+    st.markdown("### 🔥 Popular Questions")
+    example_questions = [
+        "Should I start Tyreek Hill or Davante Adams this week?",
+        "Is Josh Allen worth trading Lamar Jackson and Tony Pollard?", 
+        "What's the outlook for Christian McCaffrey this week?",
+        "Who should I pick up from waivers at RB?",
+        "What's the weather impact for this week's games?"
+    ]
+    
+    # Create columns for horizontal question buttons
+    cols = st.columns(len(example_questions))
+    for i, question in enumerate(example_questions):
+        with cols[i]:
+            if st.button(f"💭 {question[:20]}...", key=f"q_{i}", help=question):
+                # Add user message to chat history
+                if "messages" not in st.session_state:
+                    st.session_state.messages = []
+                st.session_state.messages.append({"role": "user", "content": question})
+                # Set active tab to Cadence AI to show the result
+                st.session_state.active_tab = "Cadence AI"
+                st.rerun()
+    
+    st.markdown("---")
+    
+    # Tab navigation
+    tab1, tab2, tab3, tab4 = st.tabs(["🤖 Cadence AI", "🏕️ Training Camp", "🏥 Injury News", "📊 Matchups"])
     
     # Initialize the analyst
     if "analyst" not in st.session_state:
@@ -384,24 +394,44 @@ def main():
     if "messages" not in st.session_state:
         st.session_state.messages = []
     
-    # Sidebar with examples and info
-    with st.sidebar:
-        st.header("⚡ Quick Analysis")
-        st.write("**🔥 Popular Questions:**")
-        example_questions = [
-            "Should I start Tyreek Hill or Davante Adams this week?",
-            "Is Josh Allen worth trading Lamar Jackson and Tony Pollard?",
-            "What's the outlook for Christian McCaffrey this week?",
-            "Who should I pick up from waivers at RB?",
-            "What's the weather impact for this week's games?"
-        ]
+    with tab1:
+        st.header("💬 Ask Your Fantasy Question")
         
-        for question in example_questions:
-            if st.button(f"💭 {question[:35]}...", key=question):
-                # Add user message to chat history
-                st.session_state.messages.append({"role": "user", "content": question})
-                
-                # Trigger analysis immediately
+        # Display chat messages
+        for message in st.session_state.messages:
+            with st.chat_message(message["role"]):
+                if message["role"] == "assistant":
+                    # Parse if it's a simple response or needs formatting
+                    if "Analysis:" in message["content"]:
+                        st.markdown(message["content"])
+                    else:
+                        # For new detailed responses, we need to recreate the analysis
+                        lines = message["content"].split('\n')
+                        recommendation = lines[0] if lines else "Analysis complete"
+                        confidence = "Medium"
+                        if len(lines) > 1 and "Confidence:" in lines[1]:
+                            confidence = lines[1].replace("Confidence:", "").strip()
+                        
+                        # Create a mock analysis object
+                        mock_analysis = {
+                            "recommendation": recommendation,
+                            "confidence": confidence
+                        }
+                        st.session_state.analyst.format_analysis_response(mock_analysis)
+                else:
+                    st.markdown(message["content"])
+        
+        # Chat input
+        if prompt := st.chat_input("💭 Ask me about your fantasy lineup, trades, or player analysis..."):
+            # Add user message to chat history
+            st.session_state.messages.append({"role": "user", "content": prompt})
+            
+            # Display user message
+            with st.chat_message("user"):
+                st.markdown(prompt)
+            
+            # Generate and display assistant response
+            with st.chat_message("assistant"):
                 with st.spinner("🔍 Searching for latest NFL data and analyzing..."):
                     # Create a progress bar to show thinking process
                     progress_bar = st.progress(0)
@@ -410,7 +440,7 @@ def main():
                     # Step 1: Extract search terms
                     status_text.text("🔍 Extracting key player information...")
                     progress_bar.progress(20)
-                    search_query = st.session_state.analyst.extract_search_terms(question)
+                    search_query = st.session_state.analyst.extract_search_terms(prompt)
                     
                     # Step 2: Search web
                     status_text.text("🌐 Searching for latest NFL data...")
@@ -424,7 +454,7 @@ def main():
                     # Step 4: Get full analysis
                     status_text.text("📊 Finalizing fantasy recommendations...")
                     progress_bar.progress(90)
-                    analysis = st.session_state.analyst.analyze_fantasy_question(question)
+                    analysis = st.session_state.analyst.analyze_fantasy_question(prompt)
                     
                     # Step 5: Complete
                     status_text.text("✅ Analysis complete!")
@@ -434,90 +464,178 @@ def main():
                     progress_bar.empty()
                     status_text.empty()
                     
-                    # Display the analysis
+                    # Use the new formatting method
                     st.session_state.analyst.format_analysis_response(analysis)
-                    
-                    # Add to chat history
-                    simple_response = f"{analysis.get('recommendation', 'Analysis complete')}\n\nConfidence: {analysis.get('confidence', 'Medium')}"
-                    st.session_state.messages.append({"role": "assistant", "content": simple_response})
-                    
-                st.rerun()
-        
-        st.markdown("---")
-        st.write("**🎯 Features:**")
-        st.write("🔍 Real-time NFL data search")
-        st.write("⚡ Start/sit recommendations") 
-        st.write("🤝 Trade analysis")
-        st.write("🏥 Injury report updates")
-        st.write("📊 Matchup analysis")
-        st.write("🌦️ Weather considerations")
-        st.write("🤖 AI-powered insights")
+            
+            # Add assistant response to chat history (simplified for chat history)
+            simple_response = f"{analysis.get('recommendation', 'Analysis complete')}\n\nConfidence: {analysis.get('confidence', 'Medium')}"
+            st.session_state.messages.append({"role": "assistant", "content": simple_response})
     
-    # Main chat interface
-    st.header("💬 Ask Your Fantasy Question")
+    with tab2:
+        st.header("🏕️ Training Camp News")
+        
+        if st.button("📰 Generate Latest Training Camp Report", key="training_camp"):
+            with st.spinner("🔍 Gathering latest training camp news..."):
+                # Create analysis for training camp news
+                training_camp_query = "NFL training camp news players trending up down fantasy football 2024"
+                search_results = st.session_state.analyst.search_web(training_camp_query)
+                
+                analysis_prompt = f"""
+                Based on the latest NFL training camp information, create a comprehensive training camp report that includes:
+                
+                1. Players who are trending UP (gaining value, impressing coaches, winning jobs)
+                2. Players who are trending DOWN (losing value, struggling, losing opportunities) 
+                3. Key storylines and position battles to watch
+                4. Rookie impact players making waves
+                5. Veteran players with new opportunities
+                
+                Current Training Camp Information:
+                {search_results}
+                
+                Format this as a comprehensive fantasy football training camp report with clear sections and actionable insights.
+                """
+                
+                # Get analysis
+                analysis = {
+                    "recommendation": "Training camp analysis based on current reports...",
+                    "confidence": "High"
+                }
+                
+                try:
+                    response = st.session_state.analyst.client.messages.create(
+                        model="claude-3-5-sonnet-20241022",
+                        max_tokens=2000,
+                        system=st.session_state.analyst.system_prompt,
+                        messages=[{"role": "user", "content": analysis_prompt}]
+                    )
+                    analysis["recommendation"] = response.content[0].text
+                except:
+                    analysis["recommendation"] = f"Training Camp News Summary:\n\n{search_results}\n\nFor detailed analysis, please check the latest NFL training camp reports and player updates."
+                
+                # Display the analysis
+                st.markdown("### 📊 Training Camp Analysis")
+                st.markdown(f"""
+                <div style="background: linear-gradient(135deg, #374151 0%, #6b46c1 100%); 
+                            color: white; padding: 1.5rem; border-radius: 12px; margin: 1rem 0;
+                            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+                            border-left: 4px solid #8b5cf6;">
+                    {analysis['recommendation']}
+                </div>
+                """, unsafe_allow_html=True)
+        else:
+            st.info("👆 Click the button above to generate the latest training camp report with players trending up and down!")
     
-    # Display chat messages
-    for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
-            if message["role"] == "assistant":
-                st.markdown(message["content"], unsafe_allow_html=True)
-            else:
-                st.markdown(message["content"])
+    with tab3:
+        st.header("🏥 Injury News")
+        
+        if st.button("🚨 Get Current Injury Report", key="injury_news"):
+            with st.spinner("🔍 Gathering latest injury reports..."):
+                # Create analysis for injury news
+                injury_query = "NFL injury report fantasy football players injured 2024"
+                search_results = st.session_state.analyst.search_web(injury_query)
+                
+                injury_prompt = f"""
+                Based on the latest NFL injury information, create a comprehensive injury report that includes:
+                
+                1. High-profile players currently injured and their expected return timeline
+                2. Players with questionable status for upcoming games
+                3. Backup players who could benefit from injuries
+                4. Fantasy impact of each injury (who to start/sit/pickup)
+                5. Players to monitor throughout the week
+                
+                Current Injury Information:
+                {search_results}
+                
+                Format this as a fantasy-focused injury report with clear recommendations.
+                """
+                
+                analysis = {
+                    "recommendation": "Injury report analysis...",
+                    "confidence": "High"
+                }
+                
+                try:
+                    response = st.session_state.analyst.client.messages.create(
+                        model="claude-3-5-sonnet-20241022", 
+                        max_tokens=2000,
+                        system=st.session_state.analyst.system_prompt,
+                        messages=[{"role": "user", "content": injury_prompt}]
+                    )
+                    analysis["recommendation"] = response.content[0].text
+                except:
+                    analysis["recommendation"] = f"Current Injury Report:\n\n{search_results}\n\nFor the most up-to-date injury information, check official team reports and trusted NFL sources."
+                
+                # Display the analysis
+                st.markdown("### 🚨 Injury Report Analysis")
+                st.markdown(f"""
+                <div style="background: linear-gradient(135deg, #374151 0%, #d97706 100%); 
+                            color: white; padding: 1.5rem; border-radius: 12px; margin: 1rem 0;
+                            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+                            border-left: 4px solid #f59e0b;">
+                    {analysis['recommendation']}
+                </div>
+                """, unsafe_allow_html=True)
+        else:
+            st.info("👆 Click the button above to get the latest injury report and fantasy impact analysis!")
     
-    # Chat input
-    if prompt := st.chat_input("💭 Ask me about your fantasy lineup, trades, or player analysis..."):
-        # Add user message to chat history
-        st.session_state.messages.append({"role": "user", "content": prompt})
+    with tab4:
+        st.header("📊 Weekly Matchups")
         
-        # Display user message
-        with st.chat_message("user"):
-            st.markdown(prompt)
-        
-        # Generate and display assistant response
-        with st.chat_message("assistant"):
-            with st.spinner("🔍 Searching for latest NFL data and analyzing..."):
-                # Create a progress bar to show thinking process
-                progress_bar = st.progress(0)
-                status_text = st.empty()
+        if st.button("🏈 Analyze This Week's Matchups", key="matchups"):
+            with st.spinner("🔍 Analyzing this week's NFL matchups..."):
+                # Create analysis for weekly matchups
+                matchup_query = "NFL week matchups schedule fantasy football analysis 2024"
+                search_results = st.session_state.analyst.search_web(matchup_query)
                 
-                # Step 1: Extract search terms
-                status_text.text("🔍 Extracting key player information...")
-                progress_bar.progress(20)
-                search_query = st.session_state.analyst.extract_search_terms(prompt)
+                matchup_prompt = f"""
+                Based on this week's NFL matchups, create a comprehensive fantasy analysis that includes:
                 
-                # Step 2: Search web
-                status_text.text("🌐 Searching for latest NFL data...")
-                progress_bar.progress(40)
-                search_results = st.session_state.analyst.search_web(search_query)
+                1. Best matchups to exploit (players likely to have big games)
+                2. Matchups to avoid (tough defensive opponents)
+                3. Game environments (dome vs outdoor, weather impacts)
+                4. Projected game scripts (blowouts vs close games)
+                5. Players in smash spots vs avoid spots
+                6. Defense/Special Teams recommendations
                 
-                # Step 3: Analyze with AI
-                status_text.text("🤖 AI analyzing data and generating insights...")
-                progress_bar.progress(70)
+                Current Week's Matchup Information:
+                {search_results}
                 
-                # Step 4: Get full analysis
-                status_text.text("📊 Finalizing fantasy recommendations...")
-                progress_bar.progress(90)
-                analysis = st.session_state.analyst.analyze_fantasy_question(prompt)
+                Format this as a fantasy-focused weekly matchup guide with specific start/sit recommendations.
+                """
                 
-                # Step 5: Complete
-                status_text.text("✅ Analysis complete!")
-                progress_bar.progress(100)
+                analysis = {
+                    "recommendation": "Weekly matchup analysis...",
+                    "confidence": "High"
+                }
                 
-                # Clear progress indicators
-                progress_bar.empty()
-                status_text.empty()
+                try:
+                    response = st.session_state.analyst.client.messages.create(
+                        model="claude-3-5-sonnet-20241022",
+                        max_tokens=2000, 
+                        system=st.session_state.analyst.system_prompt,
+                        messages=[{"role": "user", "content": matchup_prompt}]
+                    )
+                    analysis["recommendation"] = response.content[0].text
+                except:
+                    analysis["recommendation"] = f"Weekly Matchup Overview:\n\n{search_results}\n\nFor detailed matchup analysis, consider game scripts, weather conditions, and defensive rankings."
                 
-                # Use the new formatting method
-                st.session_state.analyst.format_analysis_response(analysis)
-        
-        # Add assistant response to chat history (simplified for chat history)
-        simple_response = f"{analysis.get('recommendation', 'Analysis complete')}\n\nConfidence: {analysis.get('confidence', 'Medium')}"
-        st.session_state.messages.append({"role": "assistant", "content": simple_response})
+                # Display the analysis
+                st.markdown("### 🎯 Matchup Analysis")
+                st.markdown(f"""
+                <div style="background: linear-gradient(135deg, #374151 0%, #059669 100%); 
+                            color: white; padding: 1.5rem; border-radius: 12px; margin: 1rem 0;
+                            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+                            border-left: 4px solid #10b981;">
+                    {analysis['recommendation']}
+                </div>
+                """, unsafe_allow_html=True)
+        else:
+            st.info("👆 Click the button above to get this week's matchup analysis and start/sit recommendations!")
     
     # Footer with Cadence branding
     st.markdown("---")
     st.markdown(f"""
-    <div class="footer-text">
+    <div style="color: #9ca3af; text-align: center; font-size: 0.9rem; margin-top: 2rem; padding: 1rem; border-top: 1px solid #374151;">
         ⏰ Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} | 🏈 Powered by <strong>CADENCE AI</strong><br>
         <strong>⚠️ Disclaimer:</strong> This analysis is for entertainment purposes. Always do your own research!
     </div>
