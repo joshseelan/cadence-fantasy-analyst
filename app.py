@@ -295,8 +295,8 @@ class CadenceFantasyAnalyst:
             <div style="background: linear-gradient(135deg, #1a1a1a 0%, #6b46c1 100%); 
                         padding: 1rem; border-radius: 15px; margin: 1rem 0; 
                         border-left: 4px solid #8b5cf6; display: flex; align-items: center; gap: 1rem;">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA0NjAgNDYwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZWxsaXBzZSBjeD0iMjMwIiBjeT0iMjMwIiByeD0iMjI1IiByeT0iMTM1IiBmaWxsPSIjMDAwMDAwIi8+CjxyZWN0IHg9IjM2IiB5PSIyNDAiIHdpZHRoPSIzODgiIGhlaWdodD0iNDAiIGZpbGw9IiMwMDAwMDAiLz4KPGxpbmUgeDE9IjE4MCIgeTE9IjE3NSIgeDI9IjE4MCIgeTI9IjIwNSIgc3Ryb2tlPSIjNkI0NkMxIiBzdHJva2Utd2lkdGg9IjgiLz4KPGxpbmUgeDE9IjIwMCIgeTE9IjE3NSIgeDI9IjIwMCIgeTI9IjIwNSIgc3Ryb2tlPSIjNkI0NkMxIiBzdHJva2Utd2lkdGg9IjgiLz4KPGxpbmUgeDE9IjIyMCIgeTE9IjE3NSIgeDI9IjIyMCIgeTI9IjIwNSIgc3Ryb2tlPSIjNkI0NkMxIiBzdHJva2Utd2lkdGg9IjgiLz4KPGxpbmUgeDE9IjI0MCIgeTE9IjE3NSIgeDI9IjI0MCIgeTI9IjIwNSIgc3Ryb2tlPSIjNkI0NkMxIiBzdHJva2Utd2lkdGg9IjgiLz4KPGxpbmUgeDE9IjI2MCIgeTE9IjE3NSIgeDI9IjI2MCIgeTI9IjIwNSIgc3Ryb2tlPSIjNkI0NkMxIiBzdHJva2Utd2lkdGg9IjgiLz4KPGxpbmUgeDE9IjI4MCIgeTE9IjE3NSIgeDI9IjI4MCIgeTI9IjIwNSIgc3Ryb2tlPSIjNkI0NkMxIiBzdHJva2Utd2lkdGg9IjgiLz4KPHRleHQgeD0iMjMwIiB5PSIzMDAiIGZpbGw9IiM2QjQ2QzEiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI0OCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNBREVOQ0U8L3RleHQ+Cjwvc3ZnPgo=" 
-                     style="width: 40px; height: 40px;" alt="Cadence Logo"/>
+                <img src="https://raw.githubusercontent.com/joshseelan/cadence-fantasy-analyst/main/CADENCE.png" 
+                     style="width: 50px; height: 50px;" alt="Cadence Logo"/>
                 <h3 style="color: white; margin: 0;">Fantasy Analysis</h3>
             </div>
             """, unsafe_allow_html=True)
@@ -376,7 +376,49 @@ def main():
         
         for question in example_questions:
             if st.button(f"💭 {question[:35]}...", key=question):
+                # Add user message to chat history
                 st.session_state.messages.append({"role": "user", "content": question})
+                
+                # Trigger analysis immediately
+                with st.spinner("🔍 Searching for latest NFL data and analyzing..."):
+                    # Create a progress bar to show thinking process
+                    progress_bar = st.progress(0)
+                    status_text = st.empty()
+                    
+                    # Step 1: Extract search terms
+                    status_text.text("🔍 Extracting key player information...")
+                    progress_bar.progress(20)
+                    search_query = st.session_state.analyst.extract_search_terms(question)
+                    
+                    # Step 2: Search web
+                    status_text.text("🌐 Searching for latest NFL data...")
+                    progress_bar.progress(40)
+                    search_results = st.session_state.analyst.search_web(search_query)
+                    
+                    # Step 3: Analyze with AI
+                    status_text.text("🤖 AI analyzing data and generating insights...")
+                    progress_bar.progress(70)
+                    
+                    # Step 4: Get full analysis
+                    status_text.text("📊 Finalizing fantasy recommendations...")
+                    progress_bar.progress(90)
+                    analysis = st.session_state.analyst.analyze_fantasy_question(question)
+                    
+                    # Step 5: Complete
+                    status_text.text("✅ Analysis complete!")
+                    progress_bar.progress(100)
+                    
+                    # Clear progress indicators
+                    progress_bar.empty()
+                    status_text.empty()
+                    
+                    # Display the analysis
+                    st.session_state.analyst.format_analysis_response(analysis)
+                    
+                    # Add to chat history
+                    simple_response = f"{analysis.get('recommendation', 'Analysis complete')}\n\nConfidence: {analysis.get('confidence', 'Medium')}"
+                    st.session_state.messages.append({"role": "assistant", "content": simple_response})
+                    
                 st.rerun()
         
         st.markdown("---")
